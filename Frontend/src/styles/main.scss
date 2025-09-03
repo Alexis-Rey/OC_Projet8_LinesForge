@@ -1,1 +1,4 @@
-@import './base/typographie.scss';
+@use "./base/typographie";
+@use "./base/reset" as *;
+@use "./layout/MainLayout";
+@use "./style_components/Header";

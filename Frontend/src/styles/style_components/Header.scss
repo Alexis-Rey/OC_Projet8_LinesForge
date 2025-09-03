@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+
+.header{
+    margin-bottom: 50px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $main-back-color;
+        nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 65px;
+        background: $secondary-back-color;
+        width: 90%;
+        border-radius: 15px;
+        height: 100px;
+        position: relative;
+            // Création du cercle autour du logo 
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 180px;                // taille du cercle
+                height: 180px;
+                background-color: #fff;      // même couleur que nav
+                border-radius: 50%;            // cercle parfait   
+                z-index: 1;
+            }
+            .nav__link{
+                text-decoration: none;
+                @include typotitle(12px,3vw,28px,$main-back-color)
+            }
+
+            .nav__link.active{
+                text-decoration: underline;
+            }
+            .nav__logo{
+                z-index: 2;
+                position: relative;
+            }
+        }
+}
+@media all and (max-width: 700px) {
+    .header{
+        nav{
+            gap:26px;
+            .nav__logo img{
+                width: 146px;
+                height: 60px;
+            }
+            .nav__link{
+                text-transform: uppercase;
+            }
+        }    
+    }
+}

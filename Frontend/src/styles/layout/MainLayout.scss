@@ -1,0 +1,18 @@
+.main{
+    margin-top: 45px;
+}
+
+.footer picture{
+    display: flex;
+    justify-content: center;
+}
+.footer img{
+    width: 120px;
+    height: 29px;
+}
+
+@media all and (max-width: 700px) {
+    .main{
+        margin: 20px 20px 0 20px;
+    }
+}
