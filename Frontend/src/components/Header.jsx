@@ -1,6 +1,5 @@
 import React from "react";
 import logoDesktop from "../assets/LinesForge-desk.webp";
-import logoMobile from "../assets/LinesForge-mob.webp";
 import { NavLink } from "react-router-dom";
 
 function Header() {
@@ -15,15 +14,12 @@ function Header() {
           {/* Logo au milieu */}
           <NavLink to="/" aria-label="Retour à la page d'accueil" className="nav__logo">
             <h1>
-              <picture>
-                <source srcSet={logoMobile} media="(max-width: 700px)" />
                 <img
                   src={logoDesktop}
                   alt="Logo LinesForge"
                   width={213}
                   height={87}
                 />
-              </picture>
             </h1>
           </NavLink>
 
