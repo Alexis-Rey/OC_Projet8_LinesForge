@@ -1,0 +1,171 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "title": "Développement Web",
+      "description": "Conception et intégration de sites web modernes, performants et responsives.",
+      "img": "/assets/services/dev-web.png"
+    },
+    {
+      "id": 2,
+      "title": "Performance, Accessibilité & Référencement",
+      "description": "Optimisation technique (Core Web Vitals), accessibilité et SEO on-page.",
+      "img": "/assets/services/seo-a11y.png"
+    },
+    {
+      "id": 3,
+      "title": "Sécurité & Maintenance",
+      "description": "Mise à jour, correctifs, sauvegardes et durcissement des configurations.",
+      "img": "/assets/services/security.png"
+    },
+    {
+      "id": 4,
+      "title": "Identité Visuelle & Design Web",
+      "description": "Maquettes, UI système et intégration fidèle au design.",
+      "img": "/assets/services/design.png"
+    },
+    {
+      "id": 5,
+      "title": "E-commerce",
+      "description": "Catalogue, panier, paiement et intégrations tierces.",
+      "img": "/assets/services/ecommerce.png"
+    }
+  ],
+  "skills": [
+    {
+      "id": 101,
+      "title": "HTML5",
+      "description": "Structure sémantique et accessibilité des contenus.",
+      "img": "/assets/skills/html5.png"
+    },
+    {
+      "id": 102,
+      "title": "CSS3",
+      "description": "Mise en page responsive, flexbox/grid, animations.",
+      "img": "/assets/skills/css3.png"
+    },
+    {
+      "id": 103,
+      "title": "Sass",
+      "description": "Architecture scalable (7-1), variables, mixins et partials.",
+      "img": "/assets/skills/sass.png"
+    },
+    {
+      "id": 104,
+      "title": "JavaScript ES6+",
+      "description": "Logique front, modules, API fetch et patterns modernes.",
+      "img": "/assets/skills/javascript.png"
+    },
+    {
+      "id": 105,
+      "title": "React",
+      "description": "Composants, hooks, routing et état côté client.",
+      "img": "/assets/skills/react.png"
+    },
+    {
+      "id": 106,
+      "title": "Node.js",
+      "description": "Exécution JS côté serveur et écosystème NPM.",
+      "img": "/assets/skills/nodejs.png"
+    },
+    {
+      "id": 107,
+      "title": "Express",
+      "description": "Création d’API REST, middlewares et sécurisation basique.",
+      "img": "/assets/skills/express.png"
+    },
+    {
+      "id": 108,
+      "title": "MongoDB",
+      "description": "Base de données NoSQL flexible et scalable.",
+      "img": "/assets/skills/mongodb.png"
+    },
+    {
+      "id": 109,
+      "title": "Git & GitHub",
+      "description": "Versioning, branches, PR et workflows collaboratifs.",
+      "img": "/assets/skills/git-github.png"
+    },
+    {
+      "id": 110,
+      "title": "Vite",
+      "description": "Bundler/dev-server ultra-rapide pour projets modernes.",
+      "img": "/assets/skills/vite.png"
+    },
+    {
+      "id": 111,
+      "title": "Figma",
+      "description": "Prototypage d’interfaces et handoff dev/design.",
+      "img": "/assets/skills/figma.png"
+    },
+    {
+      "id": 112,
+      "title": "Feedly",
+      "description": "Veille technologique et curation de contenus.",
+      "img": "/assets/skills/feedly.png"
+    },
+    {
+      "id": 113,
+      "title": "Wakelet",
+      "description": "Organisation de ressources et partage de collections.",
+      "img": "/assets/skills/wakelet.png"
+    },
+    {
+      "id": 114,
+      "title": "Notion",
+      "description": "Gestion de projet, documentation et bases de données.",
+      "img": "/assets/skills/notion.png"
+    },
+    {
+      "id": 115,
+      "title": "Lighthouse",
+      "description": "Audit performance, accessibilité, SEO et bonnes pratiques.",
+      "img": "/assets/skills/lighthouse.png"
+    }
+  ],
+  "projects": [
+    {
+      "id": 201,
+      "title": "Portfolio LinesForge",
+      "description": "Site vitrine personnel pour présenter mes compétences et projets.",
+      "coverImage": "/assets/projects/portfolio-cover.png",
+      "images": [
+        "/assets/projects/portfolio-1.png",
+        "/assets/projects/portfolio-2.png"
+      ],
+      "languages": ["React", "Sass", "Vite"],
+      "time": "3 semaines",
+      "difficulty": 4,
+      "sources": [
+        "https://developer.mozilla.org/",
+        "https://react.dev/"
+      ],
+      "gitLink": "https://github.com/Alexis-Rey/portfolio",
+      "siteLink": "https://alexis-portfolio.netlify.app",
+      "tips": "Bien préparer la structure SCSS et réutiliser les composants.",
+      "soutenance": "Présentation orale validée, retour positif sur l’ergonomie."
+    }
+  ],
+  "diplomes": [
+    {
+      "id": 301,
+      "title": "Diplôme Développeur Web",
+      "description": "OpenClassrooms - RNCP niveau 5 (équivalent Bac+2).",
+      "img": "/assets/diplomes/diplome-devweb.png"
+    }
+  ],
+  "certificats": [
+    {
+      "id": 401,
+      "title": "Certification JavaScript ES6",
+      "description": "Certification validant les compétences sur la syntaxe moderne ES6+.",
+      "img": "/assets/certificats/js-cert.png"
+    },
+    {
+      "id": 402,
+      "title": "Certification React",
+      "description": "Certification sur la maîtrise de la bibliothèque React et ses concepts principaux.",
+      "img": "/assets/certificats/react-cert.png"
+    }
+  ]
+}
