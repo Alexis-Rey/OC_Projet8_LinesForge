@@ -12,7 +12,7 @@ function Header() {
           <a href="#arsenal" className="nav__link">Arsenal</a>
 
           {/* Logo au milieu */}
-          <NavLink to="/" aria-label="Retour à la page d'accueil" className="nav__logo">
+          <NavLink to="/LinesForge" aria-label="Retour à la page d'accueil" className="nav__logo">
             <h1>
                 <img
                   src={logoDesktop}

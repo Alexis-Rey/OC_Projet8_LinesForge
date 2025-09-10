@@ -11,7 +11,7 @@ function Role({ role, children, subrole, img }) {
       <img className={`${role}__img`} src={img} alt={role} />
       <h3 className={`${role}__title`}>{role}</h3>
       <p>{children}</p>
-      <button className={`${role}__button`} onClick={handleRole}><Link to="/Home" className={`${role}__link`}>Accéder à la forge en tant {subrole}</Link></button>
+      <button className={`${role}__button`} onClick={handleRole}><Link to="/LinesForge" className={`${role}__link`}>Accéder à la forge en tant {subrole}</Link></button>
     </article>
   );
 }
