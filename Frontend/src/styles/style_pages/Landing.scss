@@ -1,24 +1,48 @@
 @use "../abstracts/variables" as *;
-
 .landing__logo{
     display: flex;
     justify-content: center;
     margin-top: 30px;
     margin-bottom: 70px;
+    min-height: 85vh;
+    transition: min-height 0.9s  ease-in-out;
+    will-change: min-height;
+    &.landing-open{
+        min-height: 5vh;
+    }
+    .landing__logo-button{
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+    }
 }
 
 .landing__subject{
+    max-height: 0;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
     color:$secondary-back-color;
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 30px;
-    margin-bottom: 30px;
-    padding: 2rem;
     box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;    // rend inciblable et non clickable pendant qu'il est masqué
+    visibility: hidden;
+    transition: max-height 0.7s ease, padding 0.3s ease, opacity 1.5s ease-in-out, visibility 0.6s ease;
+    will-change: opacity;
+    &.is-visible{
+        margin-bottom: 30px;
+        padding: 2rem;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        max-height: fit-content;
+    }
     .landing__main{
         display: flex;
         flex-direction: row;

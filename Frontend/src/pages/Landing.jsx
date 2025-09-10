@@ -1,3 +1,5 @@
+import React from "react";
+import { useState } from "react";
 import logoLandingDesk from "../assets/LinesForge-landing.webp";
 import logoLandingMob from "../assets/LinesForge-desk.webp";
 import logoForgeronDesk from "../assets/forgeron-desk.webp";
@@ -7,17 +9,28 @@ import logoStudent from "../assets/student-desk.webp";
 import Role from "../components/Role";
 
 function Landing(){
+    const [showMain, setShowMain] = useState(false);
+    const handleMain = () =>{
+        setShowMain(true);
+    }
     return <>
-        <header className="landing__logo">
-            <h1>
-                <picture className="landing__logo-picture">
-                    <source srcSet={logoLandingMob}  media="(max-width: 600px)" width={213} height={87}/>
-                    <source srcSet={logoLandingDesk}  media="(max-width: 1000px)" width={500} height={203}/>
-                    <img src={logoLandingDesk} alt="Logo LinesForge" width={829} height={337}/>
-                </picture>
-            </h1>
+        <header id="landing" className={`landing__logo ${showMain ? "landing-open" : ""}`}>
+            <button 
+            type="button" 
+            className="landing__logo-button" 
+            onClick={handleMain} aria-controls="landing__content" 
+            aria-expanded={showMain} 
+            aria-label="Cliquez pour faire apparaitre le contenu">
+                <h1>
+                    <picture className="landing__logo-picture" >
+                        <source srcSet={logoLandingMob}  media="(max-width: 600px)" width={213} height={87}/>
+                        <source srcSet={logoLandingDesk}  media="(max-width: 1000px)" width={500} height={203}/>
+                        <img src={logoLandingDesk} alt="Logo LinesForge" width={829} height={337}/>
+                    </picture>
+                </h1>
+            </button>
         </header>
-        <main className="landing__subject">
+        <main id="landing__content" className={`landing__subject ${showMain ? "is-visible" : ""}`} aria-hidden={!showMain}>
             <section className="landing__main">
                 <picture className="landing__main-picture">
                      <source srcSet={logoForgeronMob} media="(max-width: 700px)" width={150} height={155} />
