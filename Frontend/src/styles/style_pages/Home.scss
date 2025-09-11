@@ -1,7 +1,72 @@
+@use "../abstracts/variables" as *;
 .home{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 150px;
+    margin: 0 4rem 0 4rem;
+    .home__services{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background-color: $main-back-color;
+        border-radius: 2rem;
+        padding: 2rem;
+        .home__title{
+            @include typotitle(1rem, 2vw, 1.75rem, $secondary-back-color);
+        }
+        .cards--services{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            .card{
+                flex: 0 1 350px;
+            }
+            .card__content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap:2rem;
+                background-color: $third-back-color;
+                width: 100%;
+                height: 100%;
+                border-radius: 1rem;
+                box-shadow: 0px 4px 10px rgba(173, 247, 255, 0.3);
+                padding: 2rem 1rem;
+                &:hover{
+                    background-color: rgba(0,0,0,0.5);
+                    .card__title,.card__desc{
+                         color: white;
+                    }
+                    img{
+                        filter: invert(1);
+                    }
+                }
+                .card__title{
+                    @include typotitle(1rem, 2vw, 1.5rem, black);
+                    white-space: nowrap;
+                }
+                .card__desc{
+                    @include typotext(16px, 1.5vw, 16px, black);
+                    white-space: pre-line;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1441px){
+    .home{
+        margin: 0;
+    }
+}
+@media (max-width: 700px){
+    .home{
+        margin: 0 2rem 0 2rem;
+    }
 }

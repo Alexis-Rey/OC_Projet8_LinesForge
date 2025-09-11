@@ -1,4 +1,5 @@
 import React from "react";
+import data from "../data/data.json"; // fichier mock pour le test avant backend
 import Card from "../components/Card";
 
 
@@ -22,20 +23,42 @@ import Card from "../components/Card";
  * <Card goal="project" title="Portfolio" img="/images/portfolio.png" />
  */
 function Home() {
-    return <div className="home">
-        <section className="home__services">
-            <h2 id="solutions-forgees" className="home__title">Solutions Forgées</h2>
-            <Card goal="solution" title="" desc="" img="" />
-        </section>
-        <section className="home__skills">
-             <h2 id="arsenal" className="home__title">Arsenal</h2>
-             <Card goal="skill" title="" desc="" img="" />
-        </section>
-        <section className="home__projects">
-            <h2 id="realisations" className="home__title">Réalisations </h2>
-            <Card goal="project" title="" desc="" img="" />
-        </section>
+  return (
+    <div className="home">
+      <section className="home__services">
+        <h2 id="solutions-forgees" className="home__title">Solutions Forgées</h2>
+        <div className="cards cards--services">
+          {data.services.map(s => (
+            <Card key={s.id} goal="solution" title={s.title} desc={s.description} img={s.img} />
+          ))}
+        </div>
+      </section>
+
+      <section className="home__skills">
+        <h2 id="arsenal" className="home__title">Arsenal</h2>
+        <div className="cards cards--skills">
+          {data.skills.map(sk => (
+            <Card key={sk.id} goal="skill" title={sk.title} desc={sk.description} img={sk.img} />
+          ))}
+        </div>
+      </section>
+
+      <section className="home__projects">
+        <h2 id="realisations" className="home__title">Réalisations</h2>
+        <div className="cards cards--projects">
+          {data.projects.map(p => (
+            <Card
+              key={p.id}
+              goal="project"
+              title={p.title}
+              img={p.coverImage}
+            />
+          ))}
+        </div>
+      </section>
     </div>
-};
+  );
+}
+
 
 export default Home;

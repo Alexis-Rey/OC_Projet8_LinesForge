@@ -2,33 +2,33 @@
   "services": [
     {
       "id": 1,
-      "title": "Développement Web",
-      "description": "Conception et intégration de sites web modernes, performants et responsives.",
-      "img": "/assets/services/dev-web.png"
+      "title": "Forge numérique",
+      "description": "Forge de sites modernes, responsives et performants.\n\n Création de sites vitrines, portfolios ou plateformes dynamiques adaptés à vos besoins spécifiques.  ",
+      "img": "src/assets/services/smith.webp"
     },
     {
       "id": 2,
-      "title": "Performance, Accessibilité & Référencement",
-      "description": "Optimisation technique (Core Web Vitals), accessibilité et SEO on-page.",
-      "img": "/assets/services/seo-a11y.png"
+      "title": "Affûtage digital",
+      "description": "Affûtage des performances et visibilité accrue.\n\n Optimisation de la vitesse de chargement, respect des normes d’accessibilité et mise en place de bonnes pratiques SEO.",
+      "img": "src/assets/services/sword.webp"
     },
     {
       "id": 3,
-      "title": "Sécurité & Maintenance",
-      "description": "Mise à jour, correctifs, sauvegardes et durcissement des configurations.",
-      "img": "/assets/services/security.png"
+      "title": "Bouclier de la forge",
+      "description": "Le bouclier numérique de vos projets.\n\n Surveillance, mises à jour régulières, sauvegardes et sécurisation pour garantir stabilité et fiabilité.",
+      "img": "src/assets/services/shield.webp"
     },
     {
       "id": 4,
-      "title": "Identité Visuelle & Design Web",
-      "description": "Maquettes, UI système et intégration fidèle au design.",
-      "img": "/assets/services/design.png"
+      "title": "Marteau créatif",
+      "description": "Forger l’expérience utilisateur et l’image de marque.\n\n Conception UI/UX, maquettes et interfaces intuitives qui marient esthétique et efficacité.",
+      "img": "src/assets/services/hammer.webp"
     },
     {
       "id": 5,
-      "title": "E-commerce",
-      "description": "Catalogue, panier, paiement et intégrations tierces.",
-      "img": "/assets/services/ecommerce.png"
+      "title": "Atelier du commerce",
+      "description": "La forge de vos boutiques en ligne.\n\n Création et optimisation de sites e-commerce, du catalogue produit au tunnel de vente.",
+      "img": "src/assets/services/shop.webp"
     }
   ],
   "skills": [

@@ -7,7 +7,7 @@ function Card({ goal, title, desc, img }) {
             <article className={`card card--${goal}`}>
                 <div className="card__content">
                     <h3 className="card__title">{title}</h3>
-                    <img className="card__image" src={img} alt={title} width={60} height={60}/>
+                    <img className="card__image" src={img} alt={title} width={100} height={100}/>
                     <p className="card__desc">{desc}</p>
                 </div>
             </article>
