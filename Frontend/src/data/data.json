@@ -36,91 +36,85 @@
       "id": 101,
       "title": "HTML5",
       "description": "Structure sémantique et accessibilité des contenus.",
-      "img": "/assets/skills/html5.png"
+      "img": "src/assets/skills/html.webp"
     },
     {
       "id": 102,
       "title": "CSS3",
       "description": "Mise en page responsive, Flexbox/Grid, Animations.",
-      "img": "src/assets/skills/css.png"
+      "img": "src/assets/skills/css.webp"
     },
     {
       "id": 103,
       "title": "Sass",
       "description": "Architecture scalable (7-1), variables, mixins et partials.",
-      "img": "/assets/skills/sass.png"
+      "img": "src/assets/skills/sass.webp"
     },
     {
       "id": 104,
       "title": "JavaScript ES6+",
       "description": "Logique front, modules, API fetch et patterns modernes.",
-      "img": "/assets/skills/javascript.png"
+      "img": "src/assets/skills/javascript.webp"
     },
     {
       "id": 105,
       "title": "React",
       "description": "Composants, hooks, routing et état côté client.",
-      "img": "/assets/skills/react.png"
+      "img": "src/assets/skills/react.webp"
     },
     {
       "id": 106,
       "title": "Node.js",
       "description": "Exécution JS côté serveur et écosystème NPM.",
-      "img": "/assets/skills/nodejs.png"
+      "img": "src/assets/skills/node.webp"
     },
     {
       "id": 107,
       "title": "Express",
       "description": "Création d’API REST, middlewares et sécurisation basique.",
-      "img": "/assets/skills/express.png"
+      "img": "src/assets/skills/express.webp"
     },
     {
       "id": 108,
       "title": "MongoDB",
       "description": "Base de données NoSQL flexible et scalable.",
-      "img": "/assets/skills/mongodb.png"
+      "img": "src/assets/skills/mongo.webp"
     },
     {
       "id": 109,
       "title": "Git & GitHub",
       "description": "Versioning, branches, PR et workflows collaboratifs.",
-      "img": "/assets/skills/git-github.png"
+      "img": "src/assets/skills/github.webp"
     },
     {
       "id": 110,
       "title": "Vite",
       "description": "Bundler/dev-server ultra-rapide pour projets modernes.",
-      "img": "/assets/skills/vite.png"
+      "img": "src/assets/skills/vite.webp"
     },
     {
       "id": 111,
       "title": "Figma",
       "description": "Prototypage d’interfaces et handoff dev/design.",
-      "img": "/assets/skills/figma.png"
+      "img": "src/assets/skills/figma.webp"
     },
     {
       "id": 112,
       "title": "Feedly",
       "description": "Veille technologique et curation de contenus.",
-      "img": "/assets/skills/feedly.png"
+      "img": "src/assets/skills/feedly.webp"
     },
     {
       "id": 113,
-      "title": "Wakelet",
-      "description": "Organisation de ressources et partage de collections.",
-      "img": "/assets/skills/wakelet.png"
+      "title": "Notion",
+      "description": "Gestion de projet, documentation et bases de données.",
+      "img": "src/assets/skills/notion.webp"
     },
     {
       "id": 114,
-      "title": "Notion",
-      "description": "Gestion de projet, documentation et bases de données.",
-      "img": "/assets/skills/notion.png"
-    },
-    {
-      "id": 115,
       "title": "Lighthouse",
       "description": "Audit performance, accessibilité, SEO et bonnes pratiques.",
-      "img": "/assets/skills/lighthouse.png"
+      "img": "src/assets/skills/lighthouse.webp"
     }
   ],
   "projects": [

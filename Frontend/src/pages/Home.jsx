@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../data/data.json"; // fichier mock pour le test avant backend
 import Card from "../components/Card";
-import Carrousel from "../components/Carrousel";
+import CarrouselV2 from "../components/CarrouselV2";
 
 
 /** Composant Card réutilisable.
@@ -37,7 +37,7 @@ function Home() {
 
       <section className="home__skills">
         <h2 id="arsenal" className="home__title">Arsenal</h2>
-           <Carrousel
+           <CarrouselV2
               items={data.skills}
               intervalMs={2000}   // 0 pour désactiver l’auto-play
               /* ici pour chaque élément skills de mon tableau, carrousel appelle la fonction render et insère le JSX que je lui retourne, ici il transforme donc chaque 
