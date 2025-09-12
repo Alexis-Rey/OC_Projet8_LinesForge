@@ -41,8 +41,8 @@
     {
       "id": 102,
       "title": "CSS3",
-      "description": "Mise en page responsive, flexbox/grid, animations.",
-      "img": "/assets/skills/css3.png"
+      "description": "Mise en page responsive, Flexbox/Grid, Animations.",
+      "img": "src/assets/skills/css.png"
     },
     {
       "id": 103,

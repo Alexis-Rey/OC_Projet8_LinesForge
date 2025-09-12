@@ -17,7 +17,7 @@ function Card({ goal, title, desc, img }) {
         {goal === "skill" && (
             <article className={`card card--${goal}`}>
                 <img className="card__image" src={img} alt={title} width={100} height={100}/>
-                <div className="card__overlay">
+                <div className="card__overlay" aria-hidden="true">
                     <h3 className="card__title">{title}</h3>
                     <p className="card__desc">{desc}</p>
                 </div>
