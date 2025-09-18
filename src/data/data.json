@@ -4,31 +4,31 @@
       "id": "1",
       "title": "Forge numérique",
       "description": "Forge de sites modernes, responsives et performants.\n\n Création de sites vitrines, portfolios ou plateformes dynamiques adaptés à vos besoins spécifiques.  ",
-      "img": "/services/smith.webp"
+      "img": "services/smith.webp"
     },
     {
       "id": "2",
       "title": "Affûtage digital",
       "description": "Affûtage des performances et visibilité accrue.\n\n Optimisation de la vitesse de chargement, respect des normes d’accessibilité et mise en place de bonnes pratiques SEO.",
-      "img": "/services/sword.webp"
+      "img": "services/sword.webp"
     },
     {
       "id": "3",
       "title": "Bouclier de la forge",
       "description": "Le bouclier numérique de vos projets.\n\n Surveillance, mises à jour régulières, sauvegardes et sécurisation pour garantir stabilité et fiabilité.",
-      "img": "/services/shield.webp"
+      "img": "services/shield.webp"
     },
     {
       "id": "4",
       "title": "Marteau créatif",
       "description": "Forger l’expérience utilisateur et l’image de marque.\n\n Conception UI/UX, maquettes et interfaces intuitives qui marient esthétique et efficacité.",
-      "img": "/services/hammer.webp"
+      "img": "services/hammer.webp"
     },
     {
       "id": "5",
       "title": "Atelier du commerce",
       "description": "La forge de vos boutiques en ligne.\n\n Création et optimisation de sites e-commerce, du catalogue produit au tunnel de vente.",
-      "img": "/services/shop.webp"
+      "img": "services/shop.webp"
     }
   ],
   "skills": [
