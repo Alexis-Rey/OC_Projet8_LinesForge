@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
-import data from "../data/data.json";
+import data from "../data";
 import CarrouselV2 from "../components/CarrouselV2";
 import Collapse from "../components/Collapse";
 import logoGit from "/skills/github.webp";
