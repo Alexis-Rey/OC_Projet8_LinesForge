@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+@use "../base/reset" as *;
+
+.collapse{
+    &--large{
+        @include collapse(335px,100%,1408px,5px);
+    }
+    &--small{
+        @include collapse(335px, 100%, 100%, $secondary-border);
+    }
+    .collapse__header{
+        padding: 10px 20px 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        border: none;
+        border-radius: 15px;
+        background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+        @include typotitle(20px,3vw,24px,white);
+    }
+    .collapse__header-icon {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        transform: rotate(0deg);
+        width: 32px;
+        height: 32px;
+    }
+    .collapse__header[aria-expanded="true"] .collapse__header-icon {
+        transform: rotate(-180deg);
+    }
+    .collapse__content {
+        overflow: hidden;
+        transition: height 0.5s ease;
+        border-radius: 15px;
+    }
+    .collapse__content-inner{
+        border-radius: 0 0 15px 15px;
+        background-color: $main-back-color;
+        padding: 16px 20px;
+        @include typotext(16px,3vw,18px,white);
+        transition: transform 0.6s ease;
+        transform: translateY(-50px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:2rem;
+    }
+    .collapse__content.is-open .collapse__content-inner {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width:700px){
+    .collapse{
+       .collapse__header{
+            padding: 0 20px 0 15px
+        } 
+    } 
+}

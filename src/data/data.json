@@ -1,0 +1,329 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "title": "Forge numérique",
+      "description": "Forge de sites modernes, responsives et performants.\n\n Création de sites vitrines, portfolios ou plateformes dynamiques adaptés à vos besoins spécifiques.  ",
+      "img": "/services/smith.webp"
+    },
+    {
+      "id": "2",
+      "title": "Affûtage digital",
+      "description": "Affûtage des performances et visibilité accrue.\n\n Optimisation de la vitesse de chargement, respect des normes d’accessibilité et mise en place de bonnes pratiques SEO.",
+      "img": "/services/sword.webp"
+    },
+    {
+      "id": "3",
+      "title": "Bouclier de la forge",
+      "description": "Le bouclier numérique de vos projets.\n\n Surveillance, mises à jour régulières, sauvegardes et sécurisation pour garantir stabilité et fiabilité.",
+      "img": "/services/shield.webp"
+    },
+    {
+      "id": "4",
+      "title": "Marteau créatif",
+      "description": "Forger l’expérience utilisateur et l’image de marque.\n\n Conception UI/UX, maquettes et interfaces intuitives qui marient esthétique et efficacité.",
+      "img": "/services/hammer.webp"
+    },
+    {
+      "id": "5",
+      "title": "Atelier du commerce",
+      "description": "La forge de vos boutiques en ligne.\n\n Création et optimisation de sites e-commerce, du catalogue produit au tunnel de vente.",
+      "img": "/services/shop.webp"
+    }
+  ],
+  "skills": [
+    {
+      "id": "101",
+      "title": "HTML5",
+      "description": "Structure sémantique et accessibilité des contenus.",
+      "img": "/skills/html.webp"
+    },
+    {
+      "id": "102",
+      "title": "CSS3",
+      "description": "Mise en page responsive, Flexbox/Grid, Animations.",
+      "img": "/skills/css.webp"
+    },
+    {
+      "id": "103",
+      "title": "Sass",
+      "description": "Architecture scalable (7-1), variables, mixins et partials.",
+      "img": "/skills/sass.webp"
+    },
+    {
+      "id": "104",
+      "title": "JavaScript ES6+",
+      "description": "Logique front, modules, API fetch et patterns modernes.",
+      "img": "/skills/javascript.webp"
+    },
+    {
+      "id": "105",
+      "title": "React",
+      "description": "Composants, hooks, routing et état côté client.",
+      "img": "/skills/react.webp"
+    },
+    {
+      "id": "106",
+      "title": "Node.js",
+      "description": "Exécution JS côté serveur et écosystème NPM.",
+      "img": "/skills/node.webp"
+    },
+    {
+      "id": "107",
+      "title": "Express",
+      "description": "Création d’API REST, middlewares et sécurisation basique.",
+      "img": "/skills/express.webp"
+    },
+    {
+      "id": "108",
+      "title": "MongoDB",
+      "description": "Base de données NoSQL flexible et scalable.",
+      "img": "/skills/mongo.webp"
+    },
+    {
+      "id": "109",
+      "title": "Git & GitHub",
+      "description": "Versioning, branches, PR et workflows collaboratifs.",
+      "img": "/skills/github.webp"
+    },
+    {
+      "id": "110",
+      "title": "Vite",
+      "description": "Bundler/dev-server ultra-rapide pour projets modernes.",
+      "img": "/skills/vite.webp"
+    },
+    {
+      "id": "111",
+      "title": "Figma",
+      "description": "Prototypage d’interfaces et handoff dev/design.",
+      "img": "/skills/figma.webp"
+    },
+    {
+      "id": "112",
+      "title": "Feedly",
+      "description": "Veille technologique et curation de contenus.",
+      "img": "/skills/feedly.webp"
+    },
+    {
+      "id": "113",
+      "title": "Notion",
+      "description": "Gestion de projet, documentation et bases de données.",
+      "img": "/skills/notion.webp"
+    },
+    {
+      "id": "114",
+      "title": "Lighthouse",
+      "description": "Audit performance, accessibilité, SEO et bonnes pratiques.",
+      "img": "/skills/lighthouse.webp"
+    }
+  ],
+  "projects": [
+    {
+      "id": "201",
+      "title": "Booki",
+      "description": "### Objectif du projet\n\nRéaliser **l’intégration from scratch** d’une maquette Figma pour un site vitrine fictif, *Booki*, une agence de voyage. Le site devait permettre aux utilisateurs de trouver des hébergements et activités dans la ville de leur choix.\n\nL’objectif principal était de mettre en pratique les bases du **HTML5** et du **CSS3** en respectant les bonnes pratiques d’accessibilité, de sémantique et de responsive design.\n\n### Contraintes & attentes\n\n- Respect strict de la maquette fournie (desktop + mobile)\n- Site **responsive** : adapté aux écrans desktop, tablette et mobile\n- Utilisation exclusive de **HTML** et **CSS** (pas de framework JS)\n- Respect de la sémantique HTML5 pour favoriser accessibilité et SEO\n- Mise en page réalisée avec **Flexbox** ou **CSS Grid**\n- Code organisé, indenté, commenté et versionné régulièrement sur GitHub",
+      "coverImage": "/projects/booki/booki-cover.webp",
+      "imagesDesk": [
+        "/projects/booki/booki-1.webp",
+        "/projects/booki/booki-2.webp",
+        "/projects/booki/booki-3.webp",
+        "/projects/booki/booki-4.webp"
+      ],
+      "imagesMob": [
+        "/projects/booki/booki-1-mob.webp",
+        "/projects/booki/booki-2-mob.webp",
+        "/projects/booki/booki-3-mob.webp",
+        "/projects/booki/booki-4-mob.webp"
+      ],
+      "languages": ["HTML", "CSS"],
+      "time": "1 à 2 semaines en fonction de tes connaissances",
+      "difficulty": 1,
+      "sources": ["https://validator.w3.org/","https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3","https://app.livestorm.co/openclassrooms-1/decouper-une-maquette-pour-preparer-lintegration?type=detailed","https://developer.mozilla.org/fr/docs/Glossary/Semantics","https://web.dev/learn/html/document-structure?hl=fr"],
+      "annot": ["Validateur HTML W3C","HTML et CSS par Openclassroom","Webinaire intéressant à adapter et reproduire pour Booki","Les principales balises sémantiques","La base d'un fichier HTML et du Head"],
+      "gitLink": "https://github.com/Alexis-Rey/OC_Project2_Booki",
+      "siteLink": "https://alexis-rey.github.io/OC_Project2_Booki/accueil.html",
+      "tips": "#### Voici mon guide sur le projet Booki basé sur ma propre expérience \n\n 1. Travaille en desktop-first : commence par la version bureau et ajoute ensuite des media queries pour tablette et mobile.\n\n2. Découpe la maquette Figma en amont : identifie les sections principales et traduis-les en balises sémantiques (`header`, `main`, `section`, `footer`).\n\n3. Familiarise-toi avec Flexbox et CSS Grid puis choisit celui où tu es le plus à l'aise :\n- Flexbox pour les alignements simples (nav, blocs horizontaux).\n- Grid pour les structures complexes (grille d’hébergements).\n\n 4. Organise ton CSS : classe les règles par blocs, utilise des noms de classes clairs et ajoute des commentaires pour structurer ton code.\n\n---\n\n#### Voici deux éléments CSS qui te feront gagner du temps sur ce projet : ###\n\n**box-sizing: border-box**\n\nEn CSS, cette propriété indique que **la largeur et la hauteur d’un élément incluent déjà les bordures et le padding**.\n\n Résultat : quand tu ajoutes du padding ou une bordure, la taille totale du bloc **ne déborde pas** de ce que tu as défini. C’est beaucoup plus pratique pour garder un design propre et éviter les calculs compliqués.\n\n  ---\n\n**object-fit**\n\n La propriété `object-fit` sert à dire **comment une image ou une vidéo s’adapte dans son conteneur**.\n\n  Par exemple, `object-fit: cover` remplit tout l’espace du conteneur en rognant un peu l’image si nécessaire, tandis que `object-fit: contain` garde l’image entière quitte à laisser des bandes vides.",
+      "soutenance": "**Pendant la soutenance, sois capable d’expliquer :**\n\n- Comment tu as géré les media queries.\n- Comment tu as découpé la maquette en balises sémantiques et quelles sont leurs rôles respectives\n- Tes choix entre Grid et Flexbox pour les différentes sections.\n- L'importance du W3C et pourquoi c'est utile sur ce genre de projet.\n- Qu'est-ce que la spécificité en CSS.\n\nMets en avant que tu as reproduit fidèlement la maquette et que ce projet t’a permis d’acquérir de solides bases en HTML5 et CSS3."
+    },
+    {
+      "id": "202",
+      "title": "Sophie Bluel",
+      "description": "Développement d’une galerie dynamique avec gestion d’un back-end simulé.",
+      "coverImage": "/projects/sophie/sophie-cover.webp",
+      "imagesDesk": [
+        "/projects/sophie/sophie-1.webp",
+        "/projects/sophie/sophie-2.webp",
+        "/projects/sophie/sophie-3.webp",
+        "/projects/sophie/sophie-4.webp",
+        "/projects/sophie/sophie-5.webp"
+      ],
+      "imagesMob": [
+        "projects/sophie/sophie-1-mob.webp",
+        "projects/sophie/sophie-2-mob.webp",
+        "projects/sophie/sophie-3-mob.webp",
+        "projects/sophie/sophie-4-mob.webp",
+        "projects/sophie/sophie-5-mob.webp"
+      ],
+      "languages": ["JavaScript", "HTML", "CSS"],
+      "time": "2 semaines",
+      "difficulty": 2,
+      "sources": ["https://developer.mozilla.org/"],
+      "annot": ["(pour la validation W3C)","(pour avoir les bases)"],
+      "gitLink": "https://github.com/Alexis-Rey/Sophie-Bluel",
+      "siteLink": "https://alexis-sophiebluel.netlify.app",
+      "tips": "Manipuler le DOM en JavaScript et gérer les événements utilisateurs.",
+      "soutenance": "Projet validé, retour positif sur la clarté du code."
+    },
+    {
+      "id": "203",
+      "title": "Nina Carducci",
+      "description": "Optimisation SEO et performance d’un site existant de photographe.",
+      "coverImage": "/projects//nina/ninacarducci-cover.webp",
+      "imagesDesk": [
+        "/projects/nina/carrousel.webp",
+        "/projects/nina/propos.webp",
+        "/projects/nina/portfolio.webp",
+        "/projects/nina/modal.webp",
+        "/projects/nina/lighthouse.webp"
+      ],
+      "imagesMob": [
+        "/projects/ninacarducci-1-mob.webp",
+        "/projects/ninacarducci-2-mob.webp"
+      ],
+      "languages": ["HTML", "CSS", "JavaScript"],
+      "time": "2 semaines",
+      "difficulty": 3,
+      "sources": ["https://web.dev/", "https://developer.mozilla.org/"],
+      "annot": ["(pour la validation W3C)","(pour avoir les bases)"],
+      "gitLink": "https://github.com/Alexis-Rey/Nina-Carducci",
+      "siteLink": "https://alexis-ninacarducci.netlify.app",
+      "tips": "Bien utiliser Lighthouse et vérifier les critères d’accessibilité.",
+      "soutenance": "Projet validé, félicitations sur les optimisations apportées."
+    },
+    {
+      "id": "204",
+      "title": "Kasa",
+      "description": "Application web de location immobilière développée en React.",
+      "coverImage": "/projects/kasa/kasa-cover.webp",
+      "imagesDesk": [
+        "/projects/kasa/accueil.webp",
+        "/projects/kasa/gallery.webp",
+        "/projects/kasa/collapse.webp",
+        "/projects/kasa/logement.webp",
+        "/projects/kasa/access.webp"
+      ],
+      "imagesMob": [
+        "/projects/kasa/kasa-1-mob.webp",
+        "/projects/kasa/kasa-2-mob.webp"
+      ],
+      "languages": ["React", "Sass", "Vite"],
+      "time": "3 semaines",
+      "difficulty": 4,
+      "sources": ["https://react.dev/", "https://developer.mozilla.org/"],
+      "annot": ["(pour la validation W3C)","(pour avoir les bases)"],
+      "gitLink": "https://github.com/Alexis-Rey/Kasa",
+      "siteLink": "https://alexis-kasa.netlify.app",
+      "tips": "Bien structurer les composants React et appliquer le pattern 7-1 en Sass.",
+      "soutenance": "Projet validé, retour positif sur l’organisation du code."
+    },
+    {
+      "id": "205",
+      "title": "Mon Vieux Grimoire",
+      "description": "API Node.js avec Express et MongoDB pour un site de notation de livres.",
+      "coverImage": "/projects/grimoire/grimoire-cover.webp",
+      "imagesDesk": [
+        "/projects/grimoire/acc.webp",
+        "/projects/grimoire/log.webp",
+        "/projects/grimoire/add.webp",
+        "/projects/grimoire/book.webp"
+      ],
+      "imagesMob": [
+        "/projects/grimoire/acc.webp",
+        "/projects/grimoire/log.webp",
+        "/projects/grimoire/add.webp",
+        "/projects/grimoire/book.webp"
+      ],
+      "languages": ["Node.js", "Express", "MongoDB"],
+      "time": "3 semaines",
+      "difficulty": 4,
+      "sources": ["https://expressjs.com/", "https://www.mongodb.com/"],
+      "annot": ["(pour la validation W3C)","(pour avoir les bases)"],
+      "gitLink": "https://github.com/Alexis-Rey/Mon-Vieux-Grimoire",
+      "siteLink": "",
+      "tips": "Bien sécuriser les routes et gérer l’authentification avec JWT.",
+      "soutenance": "Projet validé, bonne maîtrise du back-end."
+    },
+    {
+      "id": "206",
+      "title": "Menu Maker",
+      "description": "Spécifications techniques et organisation Agile pour une application de création de menus.",
+      "coverImage": "/projects/menumaker/menumaker-cover.webp",
+      "imagesDesk": [
+        "/projects/menumaker/dash.webp",
+        "/projects/menumaker/conex.webp",
+        "/projects/menumaker/item.webp",
+        "/projects/menumaker/style.webp",
+        "/projects/menumaker/feedly.webp"
+      ],
+      "imagesMob": [
+        "/projects/menumaker/menumaker-1-mob.webp",
+        "/projects/menumaker/menumaker-2-mob.webp"
+      ],
+      "languages": ["Notion", "Figma", "Agile/Scrum"],
+      "time": "2 semaines",
+      "difficulty": 3,
+      "sources": ["https://www.atlassian.com/agile", "https://www.figma.com/"],
+      "annot": ["(pour la validation W3C)","(pour avoir les bases)"],
+      "gitLink": "https://github.com/Alexis-Rey/Menu-Maker",
+      "siteLink": "",
+      "tips": "Bien structurer le backlog et produire une documentation technique claire.",
+      "soutenance": "Projet validé, bonne présentation des specs techniques."
+    }
+  ],
+  "diplomes": [
+    {
+      "id": "301",
+      "title": "Diplôme Développeur Web",
+      "description": "OpenClassrooms - RNCP niveau 5 (équivalent Bac+2).",
+      "img": ""
+    }
+  ],
+  "certificats": [
+    {
+      "id": "401",
+      "title": "Certification HTML5 et CSS3",
+      "description": "Certification validant les compétences sur la maîtrise de la syntaxe HTML5 et du design CSS3",
+      "img": "/certifications/HtmlCss.webp"
+    },
+    {
+      "id": "402",
+      "title": "Certification JavaScript ES6 Niveau débutant",
+      "description": "Certification validant les compétences sur la syntaxe moderne ES6+ de niveau basique",
+      "img": "/certifications/Js6.webp"
+    },
+    {
+      "id": "403",
+      "title": "Certification JavaScript ES6 Niveau Avancé",
+      "description": "Certification validant les compétences avancées sur la syntaxe moderne ES6+",
+      "img": "/certifications/Js6av.webp"
+    },
+    {
+      "id": "404",
+      "title": "Certification React Base",
+      "description": "Certification sur la maîtrise de la bibliothèque React et ses concepts principaux de base.",
+      "img": "/certifications/reactB.webp"
+    },
+    {
+      "id": "405",
+      "title": "Certification React Intermédiaire",
+      "description": "Certification sur la maîtrise de la bibliothèque React et ses concepts principaux intermédiaire.",
+      "img": "/certifications/reactB.webp"
+    },
+    {
+      "id": "406",
+      "title": "Certification Git&Github",
+      "description": "Certification sur la maîtrise de la gestion de Git&GitHub",
+      "img": "/certifications/git.webp"
+    }
+  ]
+}

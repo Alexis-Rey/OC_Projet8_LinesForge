@@ -1,0 +1,131 @@
+@use "../abstracts/variables" as *;
+.landing__logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    min-height: 85vh;
+    transition: min-height 0.9s  ease-in-out;
+    will-change: min-height;
+    &.landing-open{
+        min-height: 5vh;
+    }
+    .landing__logo-button{
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+    }
+}
+
+.landing__subject{
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+    color:$secondary-back-color;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;    // rend inciblable et non clickable pendant qu'il est masqué
+    visibility: hidden;
+    transition: max-height 0.7s ease, padding 0.3s ease, opacity 1.5s ease-in-out, visibility 0.6s ease;
+    will-change: opacity;
+    &.is-visible{
+        margin-bottom: 30px;
+        padding: 2rem;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        max-height: fit-content;
+    }
+    .landing__main{
+        display: flex;
+        flex-direction: row;
+    }
+    .landing__main{
+        gap: 2.5rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+    .landing__main-text{
+        width: 70%;
+    }
+    .landing__main-title{
+        @include typotitle(16px,2vw,28px,$secondary-back-color);
+        margin-bottom: 35px;
+        text-shadow: $main-text-shadow;
+    }
+    .landing__main-subject{
+        @include typotext(14px,2vw,16px,$secondary-back-color);
+        text-shadow: $main-text-shadow;
+    }
+    .landing__choice{
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        align-items: stretch;            
+        gap: 3rem;
+
+        article{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: dashed 3.5px $third-back-color;
+            padding: 2rem;
+            text-align: center;
+            gap: 2rem;
+            h3{ 
+                @include typotitle(16px,2vw,24px,$secondary-back-color);
+                text-shadow: $main-text-shadow;
+            }
+            p{
+                @include typotext(14px,2vw,16px,$secondary-back-color);
+                text-shadow: $main-text-shadow;
+            }
+            button{
+            width: 20vw;
+            height: 3rem;
+            background-color: $third-back-color;
+            border: none;
+            border-radius: 10px;
+            margin-top: auto;            // pour pousser le bouton en bas
+            }
+            .Maître__link, .Apprentie__link{
+            @include typotext(12px,2vw,16px,black);
+            text-decoration: none;
+            }
+        }
+        }
+}
+
+/* Responsive : passe en 1 colonne */
+@media (max-width: 900px){
+    .landing__subject{
+        .landing__choice{
+            grid-template-columns: 1fr;
+                article{
+                    button{
+                        width: 40vw;
+                    }   
+                }
+        }
+  }
+}
+@media (max-width: 700px){
+    .landing__subject{
+        .landing__main{
+            flex-direction: column;
+        }
+         .landing__main-text{
+        width: 100%;
+        text-align: center;
+    }
+  }
+}

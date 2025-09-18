@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as *;
+
+.main{
+    margin-top: 45px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+    background-color: $main-back-color;
+    .footer{
+        display: flex;
+        flex-direction: row;
+        gap: 20vw;
+        align-items: center;
+        a{
+            @include typotext(12px,3vw,20px,$secondary-back-color);
+            text-decoration: none;
+            color: $secondary-back-color;
+        }
+    }
+}
+
+@media all and (min-width: 1445px) {
+    footer, .header{
+        border-radius: 30px;
+    }
+    
+}
+@media all and (max-width: 700px) {
+    .main{
+        margin: 20px 20px 0 20px;
+    }
+    footer{
+       .footer{
+            gap: 10vw;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        } 
+    }
+    
+}

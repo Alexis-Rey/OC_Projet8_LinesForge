@@ -1,0 +1,85 @@
+@use "../abstracts/variables" as *;
+.placeholder{
+    height: 250px;
+}
+.header{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    max-width: 1440px;
+    width: 100%;
+    margin-bottom: 50px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $main-back-color;
+        nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vw;
+        background: $secondary-back-color;
+        width: 90%;
+        border-radius: 15px;
+        height: 100px;
+        position: relative;
+            // Création du cercle autour du logo 
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 275px;                // taille du cercle
+                height: 180px;
+                background-color: #fff;   // même couleur que nav
+                border-radius: 50%;          // cercle parfait   
+                z-index: 0;                 // positionnement en arrière
+            }
+            .nav__link{
+                z-index: 1;
+                text-decoration: none;
+                @include typotitle(16px,2vw,28px,$main-back-color);
+                white-space:nowrap;
+                &:hover{
+                    text-decoration: underline 2px;
+                }
+            }
+
+            .nav__link.active{
+                text-decoration: underline;
+            }
+            .nav__logo{
+                z-index: 2;
+                position: relative;
+                h1{
+                    font-size: 14px;
+                }
+            }
+        }
+}
+@media all and (max-width: 915px) {
+    .placeholder{
+        height: 450px;
+    }
+    .header{
+        height: 400px;
+        nav{
+            flex-direction: column; /* passe en colonne */
+            gap: 15px;
+            &::before {
+                width: 300px;                // taille du cercle
+                height: 300px;
+            }
+            .nav__logo{
+                order: 0;             /* logo en premier */    
+            }
+            .nav__link{
+                text-transform: uppercase;
+                order: 1;             /* liens après */
+                display: block;
+            }
+        }    
+    }
+}

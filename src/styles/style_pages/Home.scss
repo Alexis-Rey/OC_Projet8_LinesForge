@@ -1,0 +1,283 @@
+@use "../abstracts/variables" as *;
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 4rem 0 4rem;
+    .home__services{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background-color: $main-back-color;
+        border-radius: 2rem;
+        padding: 2rem;
+        .home__title{
+            @include typotitle(2rem, 4vw, 4rem, $secondary-back-color);
+        }
+        .cards--services{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            .card{
+                flex: 0 1 350px;
+            }
+            .card__content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap:2rem;
+                background-color: $third-back-color;
+                width: 100%;
+                height: 100%;
+                border-radius: 1rem;
+                box-shadow: 0px 4px 10px rgba(173, 247, 255, 0.3);
+                padding: 2rem 1rem;
+                &:hover{
+                    background-color: rgba(0,0,0,0.5);
+                    .card__title,.card__desc{
+                         color: white;
+                    }
+                    img{
+                        filter: invert(1);
+                    }
+                }
+                .card__title{
+                    @include typotitle(1rem, 2vw, 1.5rem, black);
+                    white-space: nowrap;
+                }
+                .card__desc{
+                    @include typotext(16px, 1.5vw, 16px, black);
+                    white-space: pre-line;
+                }
+            }
+        }
+    }
+    .home__skills{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        width: 100%;
+        .home__title{
+            @include typotitle(2rem, 4vw, 50px, $main-back-color);
+        }
+        .carousel { 
+            position: relative;
+            overflow: hidden; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            .carousel__viewport{
+                width: 100%;
+                height: 300px;
+            }
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+            .carousel__track {
+                display: flex;
+                width: 100%; 
+            }
+            .carousel__slide { 
+                flex: 0 0 25%; 
+                display: flex; 
+                justify-content: center; 
+                .card--skill {
+                    position: relative;           /* conteneur d’empilement */
+                    width: 250px;             /* ajuste à ta maquette */
+                    aspect-ratio: 1 / 1;          /* pour avoir un conteneur tout le temps carré */
+                    background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+                    margin: 0 2.5rem;
+                    overflow: hidden;            
+                    text-align: center;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+                    border-radius: 25%;
+                    .card__image {
+                    position: absolute;
+                    inset: 0;                   /* pour faire la largeur complète de la carte */
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    padding: 1rem;
+                    z-index: 1;
+                    transition: opacity .3s ease;
+                    display: block;
+                    }
+                    .card__overlay {
+                    position: absolute;
+                    inset: 0;                   /* overlay couvre toute la carte */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                    opacity: 0;
+                    z-index: 2;
+                    transition: opacity .3s ease;
+                    .card__title{
+                        @include typotitle(1rem , 1.5vw ,1.5rem, white)
+                    }
+                    .card__desc{
+                         @include typotext(16px, 1.5vw, 16px, white);
+                          text-align: center;
+                    }
+                    }
+                    &:hover,&:focus-within { // pour accessibilité clavier
+                        .card__image {
+                            opacity: 0; 
+                        }
+                        .card__overlay { 
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+                .carrousel__controls-nav{
+                    display: flex;
+                    position: relative;
+                    gap: 10rem;
+                    button{
+                        border-radius: 25%;
+                        background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.75);
+                        color: white;
+                        &:hover,&:focus-within{
+                            color: $third-back-color;
+                        }
+                    }
+                }
+                .carrousel__controls-lecture{
+                    position: relative;
+                    bottom:89px;
+                    button{
+                        border-radius: 25%;
+                        background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.75);
+                        color: white;
+                        &:hover,&:focus-within{
+                            color: $third-back-color;
+                        }
+                    }
+                    .carrousel__controls-play{
+                        position: absolute;
+                        z-index: 1;
+                    }
+                    .carrousel__controls-stop{
+                        position: relative;
+                        z-index: 1;
+                    }
+                    .carrousel--false{
+                        visibility:hidden;
+                        opacity: 0;
+                    }
+                    .carrousel--true{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+        }
+    }
+    .home__projects{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        background-color:$main-back-color;
+        border-radius: 30px;
+        padding: 2rem;
+        .home__projects-link{
+            text-decoration: none;
+        }
+        .home__title{
+            @include typotitle(2rem, 4vw, 50px, white);
+        }
+        .cards--projects{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap:2rem;
+           justify-content: center;
+           margin-bottom: 3rem;
+           .card--project{
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% -20%, #3595FF 0%, #0C2847 100%);
+            box-shadow: 0px 4px 10px rgba(173, 247, 255, 0.3);
+            &::before{
+                    content: "";
+                    position: absolute;           
+                    inset: 0;                     
+                    background-color: rgba(0,0,0,0.5); 
+                    opacity: 0;                  
+                    transition: opacity 0.3s ease;
+                    z-index: 1; 
+            }
+            &:hover::before, &:focus-within::before {        
+                 opacity: 1;                    
+            }
+            img{
+                object-fit: fill;
+            }
+            .card__project-img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h3{
+                  @include typotext(20px, 1.5vw, 20px, white);
+                height: 3rem; 
+                margin-top: 1rem;
+                }
+            }
+           }
+        }
+    }
+}
+
+@media (min-width: 1441px){
+    .home{
+        margin: 0;
+    }
+}
+@media (max-width: 700px){
+    .home{
+        margin: 0 2rem 0 2rem;
+    }
+}
+@media (max-width: 550px){
+    .home{
+        .home__projects-link{
+             width: 100%
+        }
+        .home__projects{
+            .cards--projects{
+                .card--project{
+                    width: 95%;
+                }
+            }
+        }
+    }
+}

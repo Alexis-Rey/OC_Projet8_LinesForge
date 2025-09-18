@@ -1,0 +1,217 @@
+@use "../abstracts/variables" as *;
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
+    .carousel{
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        .carousel__viewport{
+            width: 100%;
+            border-radius: 15px;
+            border: solid 2rem $main-back-color;
+            .carousel__track{
+                width:100%;
+                .carousel__slide{
+                    width:950px;
+                }
+            }
+        }
+        .carrousel__controls-nav{
+        position: absolute;
+        bottom: 45%;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        left: 5%;
+            button{
+                background-color: rgba(0, 0, 0, 0.5);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                svg{
+                    width: 45px;
+                    height: 65px;
+                    color: $main-back-color;
+                    &:hover{
+                        color:$third-back-color;
+                    }
+                }
+            }
+        }
+        .carrousel__index{
+            position: absolute;
+            bottom: 7.5%;
+            left: 42.5%;
+        }
+    }
+    .carousel__dots {
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    margin: .75rem 0 0;
+    justify-content: center;
+        .carousel__dot {
+            width: 25px;
+            height: 25px;
+            border-radius: 999px;
+            border: 0;
+            background: $main-back-color;
+            cursor: pointer;
+            transition: transform .2s ease;
+            }
+
+            .carousel__dot.is-active {
+            transform: scale(1.25);
+            box-shadow: 0 0 0 2px $third-back-color inset;
+        }
+    }
+    .project__info{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        width: 100%;
+        @include typotext(1rem,2vw,1.25rem,$main-back-color);
+        span{
+            text-decoration: underline;
+            margin-right: 1rem;
+        }
+       
+        .project__info-title{
+            @include typotitle(2rem, 3vw,3rem, $main-back-color);
+        }
+        .project__info-first{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            width: 100%;
+            .project__info-list{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                list-style: none;
+                gap: 1rem;
+                flex-wrap: wrap;
+                width: 100%;
+                p{
+                 border: solid 2px $main-back-color;   
+                 padding: 1rem;
+                 border-radius: 15px;
+                }
+                // Ensemble de data-données pour remplir la couleur de fond des tags en fonction du langage ou outils en présence
+                .tag[data-lang="HTML"] { background:#e44d26; color:#fff; border-radius: 15px; }
+                .tag[data-lang="CSS"] { background:#264de4; color:#fff; border-radius: 15px; }
+                .tag[data-lang="JavaScript"] { background:#f7df1e; color:#0c2847; border-radius: 15px; }
+                .tag[data-lang="Sass"] { background:#cc6699; color:#fff; border-radius: 15px; }
+                .tag[data-lang="React"] { background:#61dafb; color:#0c2847; border-radius: 15px; }
+                .tag[data-lang="Vite"] { background:#646cff; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Node.js"] { background:#539e43; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Express"] { background:#000000; color:#fff; border-radius: 15px; }
+                .tag[data-lang="MongoDB"] { background:#47a248; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Git & GitHub"] { background:#181717; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Figma"] { background:#a259ff; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Notion"] { background:#000000; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Feedly"] { background:#2bb24c; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Lighthouse"] { background:#ff6f00; color:#fff; border-radius: 15px; }
+                .tag[data-lang="Agile/Scrum"] { background:#1c88bf; color:#fff; border-radius: 15px; }
+            }
+        .project__info-desc{
+            width: 100%;
+            white-space: pre-line;
+        }    
+        }
+        .collapse__content-inner{
+            .project__info-list{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                color: white;
+                text-decoration: none;
+            }
+            .project__tips, .project__soutenance{
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 2rem;
+                background-color: $third-back-color;
+                color: black;
+                border-radius: 15px;
+                width: 100%;
+                box-shadow: 0px 4px 10px rgba(173, 247, 255, 0.3);
+                p, ol, ul, li{
+                    padding: 0.25rem;
+                }
+                ol, ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    list-style-position: outside; // puce séparée
+                    padding-left: 1.5rem; 
+                }
+                hr{
+                    margin: 1.5rem 0;
+                }
+                h4{
+                    margin-bottom: 1rem;
+                }
+            .project__soutenance a{
+                color:white;
+            }
+            }
+        }
+        .project__rating{
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .projects{
+        .carousel {
+        .carrousel__controls-nav{
+            bottom: 40%;
+            width: 80%;
+            left: 10%;
+                button{
+                    svg{
+                        width: 35px;
+                        height: 55px;
+                    }
+                }
+            }
+            .carrousel__index{
+                bottom: 15%;
+                left: 40%;
+            }
+        }
+        .carousel__dots{
+             .carousel__dot{
+                width: 15px;
+                height: 15px;
+            }
+        }
+        .project__info{
+            .project__info-first{
+                li{
+                    margin: 0 0.5rem;
+                }
+                .project__rating{
+                 
+                   gap: 0;
+                }
+            }
+        }
+    }
+}

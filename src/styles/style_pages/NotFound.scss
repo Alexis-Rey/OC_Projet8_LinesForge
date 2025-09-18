@@ -1,0 +1,35 @@
+@use "../abstracts/variables.scss" as * ;
+@use "../base/reset" as *;
+
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 139px;
+    padding: 94px 0 139px 0;
+
+    .error__title{
+        @include typotitle(96px,20vw,288px,$main-back-color);
+    }
+    .error__content{
+        @include typotext(18px,4vw,36px,$main-back-color);
+        text-align: center;
+        width: clamp(260px,77%,872px);
+    }
+    .error__link{
+        @include typotext(14px,3vw,18px,$main-text-color);
+    }
+    .error__break-mobile{
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .error{
+        .error__break-mobile{
+            display: block;  // retour à la ligne sur mobile 
+            margin-top: 5px;
+        }
+    }
+}
