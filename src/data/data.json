@@ -10,25 +10,25 @@
       "id": "2",
       "title": "Affûtage digital",
       "description": "Affûtage des performances et visibilité accrue.\n\n Optimisation de la vitesse de chargement, respect des normes d’accessibilité et mise en place de bonnes pratiques SEO.",
-      "img": "OC_Projet8_LinesForge/services/sword.webp"
+      "img": "services/sword.webp"
     },
     {
       "id": "3",
       "title": "Bouclier de la forge",
       "description": "Le bouclier numérique de vos projets.\n\n Surveillance, mises à jour régulières, sauvegardes et sécurisation pour garantir stabilité et fiabilité.",
-      "img": "OC_Projet8_LinesForge/services/shield.webp"
+      "img": "services/shield.webp"
     },
     {
       "id": "4",
       "title": "Marteau créatif",
       "description": "Forger l’expérience utilisateur et l’image de marque.\n\n Conception UI/UX, maquettes et interfaces intuitives qui marient esthétique et efficacité.",
-      "img": "OC_Projet8_LinesForge/services/hammer.webp"
+      "img": "services/hammer.webp"
     },
     {
       "id": "5",
       "title": "Atelier du commerce",
       "description": "La forge de vos boutiques en ligne.\n\n Création et optimisation de sites e-commerce, du catalogue produit au tunnel de vente.",
-      "img": "OC_Projet8_LinesForge/services/shop.webp"
+      "img": "services/shop.webp"
     }
   ],
   "skills": [
@@ -129,12 +129,6 @@
         "/projects/booki/booki-3.webp",
         "/projects/booki/booki-4.webp"
       ],
-      "imagesMob": [
-        "/projects/booki/booki-1-mob.webp",
-        "/projects/booki/booki-2-mob.webp",
-        "/projects/booki/booki-3-mob.webp",
-        "/projects/booki/booki-4-mob.webp"
-      ],
       "languages": ["HTML", "CSS"],
       "time": "1 à 2 semaines en fonction de tes connaissances",
       "difficulty": 1,
@@ -156,13 +150,6 @@
         "/projects/sophie/sophie-3.webp",
         "/projects/sophie/sophie-4.webp",
         "/projects/sophie/sophie-5.webp"
-      ],
-      "imagesMob": [
-        "projects/sophie/sophie-1-mob.webp",
-        "projects/sophie/sophie-2-mob.webp",
-        "projects/sophie/sophie-3-mob.webp",
-        "projects/sophie/sophie-4-mob.webp",
-        "projects/sophie/sophie-5-mob.webp"
       ],
       "languages": ["JavaScript", "HTML", "CSS"],
       "time": "2 semaines",
@@ -186,10 +173,6 @@
         "/projects/nina/modal.webp",
         "/projects/nina/lighthouse.webp"
       ],
-      "imagesMob": [
-        "/projects/ninacarducci-1-mob.webp",
-        "/projects/ninacarducci-2-mob.webp"
-      ],
       "languages": ["HTML", "CSS", "JavaScript"],
       "time": "2 semaines",
       "difficulty": 3,
@@ -212,10 +195,6 @@
         "/projects/kasa/logement.webp",
         "/projects/kasa/access.webp"
       ],
-      "imagesMob": [
-        "/projects/kasa/kasa-1-mob.webp",
-        "/projects/kasa/kasa-2-mob.webp"
-      ],
       "languages": ["React", "Sass", "Vite"],
       "time": "3 semaines",
       "difficulty": 4,
@@ -232,12 +211,6 @@
       "description": "API Node.js avec Express et MongoDB pour un site de notation de livres.",
       "coverImage": "/projects/grimoire/grimoire-cover.webp",
       "imagesDesk": [
-        "/projects/grimoire/acc.webp",
-        "/projects/grimoire/log.webp",
-        "/projects/grimoire/add.webp",
-        "/projects/grimoire/book.webp"
-      ],
-      "imagesMob": [
         "/projects/grimoire/acc.webp",
         "/projects/grimoire/log.webp",
         "/projects/grimoire/add.webp",
@@ -264,10 +237,6 @@
         "/projects/menumaker/item.webp",
         "/projects/menumaker/style.webp",
         "/projects/menumaker/feedly.webp"
-      ],
-      "imagesMob": [
-        "/projects/menumaker/menumaker-1-mob.webp",
-        "/projects/menumaker/menumaker-2-mob.webp"
       ],
       "languages": ["Notion", "Figma", "Agile/Scrum"],
       "time": "2 semaines",

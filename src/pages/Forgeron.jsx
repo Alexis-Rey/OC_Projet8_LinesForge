@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../data/data.json";
+import data from "../data";
 import Collapse from "../components/Collapse";
 import Me from "/utils/me.webp";
 import OC from "/utils/Oc.webp";

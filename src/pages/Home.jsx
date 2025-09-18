@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import data from "../data/data.json"; // fichier mock pour le test avant backend
+import data from "../data"; // fichier mock pour le test avant backend
 import Card from "../components/Card";
 import CarrouselV2 from "../components/CarrouselV2";
 
