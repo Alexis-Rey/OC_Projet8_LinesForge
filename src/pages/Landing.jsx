@@ -7,18 +7,26 @@ import logoForgeronMob from "/forgeron-mob.webp";
 import logoPro from "/pro-desk.webp";
 import logoStudent from "/student-desk.webp";
 import Role from "../components/Role";
+import { useAdminModal } from "../contexts/adminModal";
 
 function Landing(){
-    const [showMain, setShowMain] = useState(false);
-    const handleMain = () =>{
-        setShowMain(true);
+  const [showMain, setShowMain] = useState(false);
+  const { armAdminLogo, registerAdminLogoClick } = useAdminModal(); 
+
+  const onLogoClick = () => {
+    if (!showMain) {
+      setShowMain(true);   
+      armAdminLogo();     
+      return;             
     }
+    registerAdminLogoClick(); 
+  };
     return <>
         <header id="landing" className={`landing__logo ${showMain ? "landing-open" : ""}`}>
             <button 
             type="button" 
             className="landing__logo-button" 
-            onClick={handleMain} aria-controls="landing__content" 
+            onClick={onLogoClick} aria-controls="landing__content" 
             aria-expanded={showMain} 
             aria-label="Cliquez pour faire apparaitre le contenu">
                 <h1>
