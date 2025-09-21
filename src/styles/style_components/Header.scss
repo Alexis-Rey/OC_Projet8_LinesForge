@@ -18,6 +18,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        max-width: 1440px;
         gap: 4vw;
         background: $secondary-back-color;
         width: 90%;
@@ -82,4 +83,8 @@
             }
         }    
     }
+}
+
+@media (min-width: 1920px) {
+  .header nav { gap: 3.5rem; }  
 }
