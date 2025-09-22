@@ -39,7 +39,7 @@ export default function AdminListPanel({ type, title, onBack, onNew }) {
   return (
     <section className="adminlist">
       <div className="adminlist__bar">
-        <button className="adminlist__btn adminlist__btn--back" onClick={onBack}>← Retour</button>
+        <button className="adminlist__btn adminlist__btn--back" onClick={onBack}>Retour</button>
         <h2 className="adminlist__title">{title}</h2>
         <button className="adminlist__btn adminlist__btn--new" onClick={onNew}>New</button>
       </div>

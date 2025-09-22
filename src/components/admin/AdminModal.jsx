@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Modal from 'react-modal';
-import { useAdminModal } from '../contexts/adminModal';
+import { useAdminModal } from '../../contexts/adminModal';
 // import { login } from '../api/auth'; // quand tu branches l’API
 import AdminListPanel from './AdminListPanel';
 

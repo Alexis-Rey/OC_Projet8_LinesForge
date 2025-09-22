@@ -1,0 +1,112 @@
+.adminform {
+  display: grid;
+  gap: 14px;
+}
+
+.adminform__header{
+  display:grid; 
+  grid-template-columns: 140px 1fr 140px; 
+  align-items:center;
+}
+
+.adminform__title{ 
+    margin:0; 
+    text-align:center; 
+}
+
+.adminform__row { display: grid; 
+    gap: 8px; 
+}
+.adminform__label, .adminform__subLabel { 
+    font-weight: 600; 
+}
+
+.adminform__input, .adminform__textarea {
+    border: 1px solid #1b2a41;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: inherit;
+}
+.adminform__textarea { min-height: 140px; 
+    resize: vertical; 
+}
+
+.adminform__preview{
+  margin-top: 8px;
+    img { 
+        display:block; 
+        max-width: 240px; 
+        height:auto; 
+        border-radius: 8px; 
+    }
+}
+.adminform__previewgrid{
+    margin-top: 8px;
+    display: grid; 
+    grid-template-columns: repeat(4, minmax(0,1fr)); 
+    gap: 8px;
+    img { 
+        width: 100%; 
+        aspect-ratio: 1/1; 
+        object-fit: cover; 
+        border-radius: 8px; 
+        display:block; 
+    }
+}
+
+.adminform__tags{ 
+    display:grid; 
+    gap:8px; 
+}
+.adminform__taglist{ 
+    display:flex; 
+    flex-wrap:wrap; 
+    gap:6px; 
+}
+.adminform__tag{
+    border:1px solid #e4e7ec; 
+    background:#fff; 
+    border-radius: 16px;
+    padding:4px 8px; 
+    cursor:pointer;
+}
+
+.adminform__repeater{ 
+    display:grid; 
+    gap:10px; 
+}
+.adminform__repeater-item{
+  border:1px solid #e4e7ec; 
+  border-radius: 10px; 
+  padding:10px; 
+  display:grid; 
+  gap:8px;
+}
+.adminform__repeater-col{ 
+    display:grid; 
+    gap:6px; 
+}
+
+.adminform__actions{
+  margin-top: 6px;
+  display:flex; 
+  justify-content:flex-end; 
+  gap:8px;
+}
+.adminform__btn{
+  background:#0d223a; 
+  color:#fff; border:0; 
+  border-radius: 18px; 
+  padding:10px 16px; 
+  cursor:pointer;
+    &--ghost{ 
+        background:#fff; 
+        color:#0d223a; 
+        border:1px solid #0d223a; 
+    }
+}
+.adminform__error{ 
+    color:#c81e1e; 
+    font-weight:600; 
+    text-align:center; 
+}
