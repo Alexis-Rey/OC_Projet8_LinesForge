@@ -4,7 +4,7 @@ const addBase = (p = '') => {
   if (!p) return '';
   if (/^https?:\/\//i.test(p)) return p;           // URLs externes inchangées
   const base = import.meta.env.BASE_URL;           // "/" en dev, "/OC_Projet8_LinesForge/" en prod
-  return base + p.replace(/^\/+/, '');             // enlève les "/" du début
+  return base + p.replace(/^\/+/, '');             // on enlève les "/" du début
 };
 
 const mapImg = (arr = []) => arr.map(addBase);

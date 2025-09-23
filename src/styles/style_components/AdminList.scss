@@ -1,42 +1,102 @@
-.adminlist__bar {
-  display: grid; grid-template-columns: 120px 1fr 120px; align-items: center; gap: 10px;
-  margin-bottom: 10px;
-}
-.adminlist__title { text-align: center; margin: 0; }
+@use "../abstracts/variables" as *;
+.adminlist{
+  margin-top: 1.5rem;
+  padding: 1rem;
+  .adminlist__bar {
+    display: grid; 
+    grid-template-columns: 120px 1fr 120px; 
+    align-items: center; 
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .adminlist__title { 
+    text-align: center; 
+    margin: 0;
+    @include typotitle(1.5rem,2vw,2.5rem,$main-back-color);
+  }
 
-.adminlist__btn {
-  background: #0d223a; color: #fff; border: 0; border-radius: 18px; padding: 10px 16px; cursor: pointer;
-  &--back { justify-self: start; }
-  &--new { justify-self: end; }
-}
+  .adminlist__btn {
+    background: #0d223a; 
+    color: #fff; border: 0; 
+    border-radius: 18px; 
+    padding: 10px 16px; cursor: pointer;
+    &--back { 
+      justify-self: start; 
+    }
+    &--new { 
+      justify-self: end; 
+    }
+  }
 
-.adminlist__status {
-  text-align: center; padding: 12px;
-  &--error { color: crimson; }
-  &--empty { opacity: .75; }
-}
+  .adminlist__status {
+    text-align: center; 
+    padding: 12px;
+    &--error { 
+      color: crimson; 
+    }
+    &--empty { 
+      opacity: .75; 
+    }
+  }
 
-.adminlist__grid {
-  list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(3, minmax(160px, 1fr)); gap: 18px;
-}
-.adminlist__card {
-  border: 2px solid #0d223a; border-radius: 18px; padding: 10px; background: #fff;
-  display: grid; grid-template-rows: 1fr auto auto; gap: 8px;
-}
-.adminlist__thumb {
-  aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; background: #f6f7f9;
-  img { width: 100%; height: 100%; object-fit: cover; display: block; }
-}
-.adminlist__thumb--empty { width: 100%; height: 100%; display: grid; place-items: center; color: #98a2b3; }
+  .adminlist__grid {
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+    display: grid; 
+    grid-template-columns: repeat(3, minmax(160px, 1fr)); 
+    gap: 18px;
+  }
+  .adminlist__card {
+    border: 2px solid #0d223a; 
+    border-radius: 18px; 
+    padding: 10px; 
+    background: #fff;
+    display: grid; 
+    grid-template-rows: 1fr auto auto; 
+    gap: 8px;
+  }
+  .adminlist__thumb {
+    aspect-ratio: 1 / 1; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    background: #f6f7f9;
+    img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+    }
+  }
+  .adminlist__thumb--empty { 
+    width: 100%; 
+    height: 100%; 
+    display: grid; 
+    place-items: center; 
+    color: #98a2b3; 
+  }
 
-.adminlist__meta { min-height: 1.5em; }
-.adminlist__item-title { font-weight: 700; }
+  .adminlist__meta { 
+    min-height: 1.5em; 
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .adminlist__item-title { 
+    font-weight: 700; 
+  }
 
-.adminlist__actions {
-  display: flex; gap: 8px; justify-content: flex-end;
-  .adminlist__icon {
-    background: #fff; border: 1px solid #e4e7ec; border-radius: 8px; padding: 6px 8px; cursor: pointer;
+  .adminlist__actions {
+    display: flex; 
+    gap: 8px; 
+    justify-content: flex-end;
+    .adminlist__icon {
+      background: #fff; border: 1px solid #e4e7ec; border-radius: 8px; padding: 6px 8px; cursor: pointer;
+    }
   }
 }
-@media (max-width: 640px) { .adminlist__grid { grid-template-columns: 1fr 1fr; } }
+
+@media (max-width: 640px) { 
+  .adminlist__grid { 
+    grid-template-columns: 1fr 1fr; 
+  } 
+}

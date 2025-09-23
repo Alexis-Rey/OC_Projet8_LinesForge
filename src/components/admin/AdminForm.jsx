@@ -1,8 +1,6 @@
 import React, { useEffect, useId, useMemo, useState } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
-
-export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
+export default function AdminEntityForm({ schema, mode, passingId, onCancel, onSuccess }) {
   const [values, setValues] = useState({});
   const [files, setFiles] = useState({});            // { [name]: File | File[] }
   const [previews, setPreviews] = useState({});      // { [name]: string | string[] }
@@ -11,9 +9,11 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
   const token = typeof window !== 'undefined' ? localStorage.getItem('lf_token') : null;
+  const editMode = mode === 'edit';
 
-  // init structures par défaut
+  // reset structures quand le schéma change (entre services, projets, skills, etc..)
   useEffect(() => {
     setValues({});
     setFiles({});
@@ -23,6 +23,74 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
     setErr('');
     setLoading(false);
   }, [schema]);
+
+  // Charger l'entité en mode édition pour pré-remplir
+  useEffect(() => {
+    let cancel = false;
+    if (!editMode || !passingId) return; // vérification de sécurité de la présence du mode edit et de l'id
+
+    (async () => {
+      try {
+        setLoading(true);
+        setErr('');
+        const url = `${API_BASE}${schema.endpoint}/${passingId}`;
+        const res = await fetch(url, {
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+        if (!res.ok) {
+          const msg = await res.text().catch(() => '');
+          throw new Error(msg || `HTTP ${res.status}`);
+        }
+        const data = await res.json();
+
+        if (cancel) return;
+
+        // On va ensuite mapper les valeurs reçues depuis la BDD dans nos états
+        const nextValues = {};
+        const nextTags = {};
+        const nextRepeaters = {};
+
+        for (const f of schema.fields) {
+          const v = data[f.name];
+
+          if (['text', 'textarea', 'url', 'number'].includes(f.type)) {
+            nextValues[f.name] = v ?? '';
+          }
+
+          if (f.type === 'tags') {
+            nextTags[f.name] = Array.isArray(v) ? v : [];
+          }
+
+          if (f.type === 'repeater') {
+            nextRepeaters[f.name] = Array.isArray(v) ? v : [];
+          }
+
+          if (f.type === 'file') {
+            // On stocke l’URL existante (si le back renvoie "imageUrl" ou le même nom)
+            nextValues[f.name] = v || data[`${f.name}Url`] || data.imageUrl || '';
+          }
+
+          if (f.type === 'files') {
+            // Tableau d'URLs (ou objets { url })
+            const arr = Array.isArray(v) ? v : [];
+            nextValues[f.name] = arr.map(x => (typeof x === 'string' ? x : (x?.url || ''))).filter(Boolean);
+          }
+        }
+
+        setValues(nextValues);
+        setTags(nextTags);
+        setRepeaters(nextRepeaters);
+      } catch (e) {
+        if (!cancel) setErr(e.message || 'Chargement impossible');
+      } finally {
+        if (!cancel) setLoading(false);
+      }
+    })();
+
+    return () => { cancel = true; };
+  }, [editMode, passingId]);
 
   const handleChange = (name, val) => setValues(v => ({ ...v, [name]: val }));
 
@@ -35,7 +103,6 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
     const arr = Array.from(fileList || []);
     const sliced = maxItems ? arr.slice(0, maxItems) : arr;
     setFiles(f => ({ ...f, [name]: sliced }));
-    // previews
     const urls = sliced.map(f => URL.createObjectURL(f));
     setPreviews(p => ({ ...p, [name]: urls }));
   };
@@ -69,17 +136,42 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
     });
   };
 
-  // Validation basique (required)
+  // Validation: on vérifie la présence des champs requis sinon on le signale avant submit
   const validate = () => {
     for (const f of schema.fields) {
       if (!f.required) continue;
-      if (f.type === 'file' && !files[f.name]) return `${f.label || f.name} requis`;
-      if (f.type === 'files' && !(files[f.name] && files[f.name].length)) return `${f.label || f.name} requis`;
-      if (f.type === 'tags' && !(tags[f.name] && tags[f.name].length)) return `${f.label || f.name} requis`;
-      if (f.type === 'repeater' && !(repeaters[f.name] && repeaters[f.name].length)) return `${f.label || f.name} requis`;
-      const v = values[f.name];
-      if (['text','textarea','url','number'].includes(f.type) && f.required && (v === undefined || v === null || String(v).trim() === '')) {
-        return `${f.label || f.name} requis`;
+
+      if (['text','textarea','url','number'].includes(f.type)) {
+        const v = values[f.name];
+        if (v === undefined || v === null || String(v).trim() === '') return `${f.label || f.name} requis`;
+      }
+
+      if (f.type === 'tags') {
+        if (!(tags[f.name] && tags[f.name].length)) return `${f.label || f.name} requis`;
+      }
+
+      if (f.type === 'repeater') {
+        if (!(repeaters[f.name] && repeaters[f.name].length)) return `${f.label || f.name} requis`;
+      }
+
+      if (f.type === 'file') {
+        const hasNew = !!files[f.name];
+        const existing = values[f.name] || values[`${f.name}Url`] || values.imageUrl;
+        if (!editMode) {
+          if (!hasNew) return `${f.label || f.name} requis`;
+        } else {
+          if (!hasNew && !existing) return `${f.label || f.name} requis`;
+        }
+      }
+
+      if (f.type === 'files') {
+        const hasNew = Array.isArray(files[f.name]) && files[f.name].length > 0;
+        const existingCount = Array.isArray(values[f.name]) ? values[f.name].length : 0;
+        if (!editMode) {
+          if (!hasNew) return `${f.label || f.name} requis`;
+        } else {
+          if (!hasNew && existingCount === 0) return `${f.label || f.name} requis`;
+        }
       }
     }
     return '';
@@ -89,11 +181,11 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
     e.preventDefault();
     setErr('');
     const vErr = validate();
-    if (vErr) { setErr(vErr); return; }
+    if (vErr) { setErr(vErr); return; } // si présence d'une erreur de champs incomplet on le signale ici 
 
     try {
       setLoading(true);
-      const fd = new FormData();
+      const fd = new FormData(); //création d'un nouveau formulaire qui contiendra les éléments indiqués dans le schéma
 
       // 1) champs simples
       for (const f of schema.fields) {
@@ -102,25 +194,31 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
         }
         if (f.type === 'tags') {
           const arr = tags[f.name] || [];
-          fd.append(f.name, JSON.stringify(arr)); // ⚠️ côté back: JSON.parse(req.body[name])
+          fd.append(f.name, JSON.stringify(arr)); 
         }
         if (f.type === 'repeater') {
           const items = repeaters[f.name] || [];
-          fd.append(f.name, JSON.stringify(items)); // ⚠️ côté back: JSON.parse(req.body[name])
+          fd.append(f.name, JSON.stringify(items)); 
         }
         if (f.type === 'file' && files[f.name]) {
-          fd.append(f.name, files[f.name]); // single
+          fd.append(f.name, files[f.name]); // seulement si nouveau fichier
         }
         if (f.type === 'files' && Array.isArray(files[f.name])) {
-          for (const file of files[f.name]) fd.append(f.name, file); // multiple
+          for (const file of files[f.name]) fd.append(f.name, file); // seulement les nouveaux
         }
       }
 
-      const res = await fetch(`${API_BASE}${schema.endpoint}`, {
-        method: schema.method || 'POST',
+      const url = editMode
+        ? `${API_BASE}${schema.endpoint}/${passingId}`
+        : `${API_BASE}${schema.endpoint}`;
+
+      const method = editMode ? 'PUT' : (schema.method || 'POST');
+
+      const res = await fetch(url, {
+        method,
         headers: {
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          // ne PAS fixer Content-Type, le navigateur ajoute le boundary pour FormData
+          // NE PAS fixer Content-Type pour FormData
         },
         body: fd,
       });
@@ -129,10 +227,10 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
         const msg = await res.text().catch(() => '');
         throw new Error(msg || `HTTP ${res.status}`);
       }
-      const created = await res.json().catch(() => ({}));
-      onSuccess?.(created);
+      const payload = await res.json().catch(() => ({}));
+      onSuccess?.(payload);
     } catch (e) {
-      setErr(e.message || 'Erreur lors de la création');
+      setErr(e.message || (editMode ? 'Erreur lors de la mise à jour' : 'Erreur lors de la création'));
     } finally {
       setLoading(false);
     }
@@ -142,7 +240,9 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
     <form className="adminform" onSubmit={submit} noValidate>
       <div className="adminform__header">
         <button type="button" className="adminform__btn adminform__btn--ghost" onClick={onCancel}>← Retour</button>
-        <h3 className="adminform__title">{schema.title}</h3>
+        <h3 className="adminform__title">
+          {schema.title}{editMode ? ' — Modifier' : ' — Nouveau'}
+        </h3>
         <div />
       </div>
 
@@ -163,6 +263,7 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
           addRepeaterItem={addRepeaterItem}
           updateRepeaterItem={updateRepeaterItem}
           removeRepeaterItem={removeRepeaterItem}
+          editMode={editMode}
         />
       ))}
 
@@ -170,7 +271,7 @@ export default function AdminEntityForm({ schema, onCancel, onSuccess }) {
 
       <div className="adminform__actions">
         <button type="button" className="adminform__btn adminform__btn--ghost" onClick={onCancel}>Annuler</button>
-        <button className="adminform__btn" disabled={loading}>{loading ? '…' : 'Créer'}</button>
+        <button className="adminform__btn" disabled={loading}>{loading ? '…' : (editMode ? 'Enregistrer' : 'Créer')}</button>
       </div>
     </form>
   );
@@ -184,6 +285,7 @@ function FieldRow(props) {
     files, previews, onFile, onFiles,
     tags, addTag, removeTag,
     repeaters, addRepeaterItem, updateRepeaterItem, removeRepeaterItem,
+    editMode,
   } = props;
   const id = useId();
 
@@ -229,7 +331,8 @@ function FieldRow(props) {
   }
 
   if (field.type === 'file') {
-    const url = previews[field.name];
+    // preview locale si nouveau fichier, sinon URL existante du back (value)
+    const url = previews[field.name] || value || '';
     return (
       <div className="adminform__row">
         <label className="adminform__label">{field.label || field.name}{field.required ? ' *' : ''}</label>
@@ -238,16 +341,26 @@ function FieldRow(props) {
           type="file"
           name={field.name}
           accept={field.accept || 'image/*'}
-          required={field.required}
+          // en édition, on ne rend pas obligatoire si une image existe déjà
+          required={field.required && !editMode}
           onChange={e => onFile(field.name, e.target.files?.[0])}
         />
-        {url && <div className="adminform__preview"><img src={url} alt="" /></div>}
+        {url && (
+          <div className="adminform__preview">
+            <img src={url} alt="" />
+            {editMode && !previews[field.name] && <small>Image actuelle — laissez vide pour la conserver.</small>}
+          </div>
+        )}
       </div>
     );
   }
 
   if (field.type === 'files') {
-    const urls = previews[field.name] || [];
+    // Si pas de nouveaux fichiers sélectionnés, on affiche les URLs existantes (value = array d’urls)
+    const urls = (previews[field.name] && previews[field.name].length)
+      ? previews[field.name]
+      : (Array.isArray(value) ? value : []);
+
     return (
       <div className="adminform__row">
         <label className="adminform__label">{field.label || field.name}</label>
@@ -263,6 +376,9 @@ function FieldRow(props) {
           <div className="adminform__previewgrid">
             {urls.map((u, i) => <img key={i} src={u} alt="" />)}
           </div>
+        )}
+        {editMode && !previews[field.name] && urls.length > 0 && (
+          <small>Images actuelles — ne rien choisir pour les conserver.</small>
         )}
       </div>
     );
