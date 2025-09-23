@@ -36,4 +36,37 @@ export const FORM_SCHEMAS = {
       ]},
     ],
   },
+
+  skills: {
+    title: 'Nouveau Skill',
+    endpoint: '/api/skills',
+    method: 'POST',
+    fields: [
+      { type: 'text', name: 'title', label: 'Titre', required: true, maxLength: 150 },
+      { type: 'textarea', name: 'description', label: 'Description', required: true, maxLength: 5000 },
+      { type: 'file', name: 'image', label: 'Image', required: true, accept: 'image/*' },
+    ],
+  },
+
+  diplomes: {
+    title: 'Nouveau Diplôme',
+    endpoint: '/api/diplomes',
+    method: 'POST',
+    fields: [
+      { type: 'text', name: 'title', label: 'Titre', required: true, maxLength: 150 },
+      { type: 'textarea', name: 'description', label: 'Description', required: true, maxLength: 5000 },
+      { type: 'file', name: 'image', label: 'Image', required: true, accept: 'image/*' },
+    ],
+  },
+
+  certifications: {
+    title: 'Nouvelle Certification',
+    endpoint: '/api/certifications',
+    method: 'POST',
+    fields: [
+      { type: 'text', name: 'title', label: 'Titre', required: true, maxLength: 150 },
+      { type: 'textarea', name: 'description', label: 'Description', required: true, maxLength: 5000 },
+      { type: 'file', name: 'image', label: 'Image', required: true, accept: 'image/*' },
+    ],
+  },
 };
