@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 
 // Chaque endpoints doit toujours commencer par / pour correspondance avec le back 
 const endpoints = {
-  services: "/api/services",
   projects: "/api/projects",
+  services: "/api/services",
+  skills: "/api/skills",
+  diplomes: "/api/diplomes",
+  certifications: "/api/certifications",
 };
 
 export default function AdminListPanel({ type, title, onBack, onNew, onEdit }) {
@@ -68,6 +71,9 @@ export default function AdminListPanel({ type, title, onBack, onNew, onEdit }) {
 
   const thumb = (it) => {
     if (type === "services") return it.imageUrl;
+    if (type === "skills") return it.imageUrl;
+    if (type === "diplomes") return it.imageUrl;
+    if (type === "certifications") return it.imageUrl;
     if (type === "projects") return it.coverImage?.url || it.coverImageUrl;
     return "";
   };
