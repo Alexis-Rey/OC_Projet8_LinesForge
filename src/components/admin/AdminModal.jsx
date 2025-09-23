@@ -141,9 +141,9 @@ export default function AdminModal() {
           <div className="adminmodal__grid">
             <button className="adminmodal__card" onClick={() => setStep('projects')}>Projets</button>
             <button className="adminmodal__card" onClick={() => setStep('services')}>Services</button>
-            <button className="adminmodal__card" disabled>Diplôme</button>
-            <button className="adminmodal__card" disabled>Certifs</button>
-            <button className="adminmodal__card" disabled>Skills</button>
+            <button className="adminmodal__card" onClick={() => setStep('diplomes')}>Diplôme</button>
+            <button className="adminmodal__card" onClick={() => setStep('certifs')}>Certifs</button>
+            <button className="adminmodal__card" onClick={() => setStep('skills')}>Skills</button>
           </div>
         </section>
       )}
@@ -167,6 +167,33 @@ export default function AdminModal() {
           onEdit={(id) => {setEditingId(id);setStep('services:edit')}}
         />
       )}
+      {step === 'diplomes' && (
+        <AdminListPanel
+          type="diplomes"
+          title="Mes Diplômes"
+          onBack={() => {setEditingId(null); setStep('hub'); }}
+          onNew={() => {setEditingId(null); setStep('diplomes:new');}}
+          onEdit={(id) => {setEditingId(id);setStep('diplomes:edit')}}
+        />
+      )}
+      {step === 'certifications' && (
+        <AdminListPanel
+          type="certifications"
+          title="Mes certifications"
+          onBack={() => {setEditingId(null); setStep('hub'); }}
+          onNew={() => {setEditingId(null); setStep('certifications:new');}}
+          onEdit={(id) => {setEditingId(id);setStep('certifications:edit')}}
+        />
+      )}
+      {step === 'skills' && (
+        <AdminListPanel
+          type="skills"
+          title="Mes skills"
+          onBack={() => {setEditingId(null); setStep('hub'); }}
+          onNew={() => {setEditingId(null); setStep('skills:new');}}
+          onEdit={(id) => {setEditingId(id);setStep('skills:edit')}}
+        />
+      )}
 
       {step === 'projects:new' && (
         <AdminForm
@@ -183,6 +210,33 @@ export default function AdminModal() {
           mode = "create"
           onCancel={() => setStep('services')}
           onSuccess={() => setStep('services')}
+        />
+      )}
+
+      {step === 'diplomes:new' && (
+        <AdminForm
+          schema={FORM_SCHEMAS.diplomes}
+          mode = "create"
+          onCancel={() => setStep('diplomes')}
+          onSuccess={() => setStep('diplomes')}
+        />
+      )}
+
+      {step === 'certifications:new' && (
+        <AdminForm
+          schema={FORM_SCHEMAS.certifications}
+          mode = "create"
+          onCancel={() => setStep('certifications')}
+          onSuccess={() => setStep('certifications')}
+        />
+      )}
+
+      {step === 'skills:new' && (
+        <AdminForm
+          schema={FORM_SCHEMAS.skills}
+          mode = "create"
+          onCancel={() => setStep('skills')}
+          onSuccess={() => setStep('skills')}
         />
       )}
 
@@ -203,6 +257,36 @@ export default function AdminModal() {
           passingId = {editingId}
           onCancel={() => { setEditingId(null); setStep('services'); }}
           onSuccess={() => { setEditingId(null); setStep('services'); }}
+        />
+      )}
+
+      {step === 'diplomes:edit' && editingId && (
+        <AdminForm
+          schema={FORM_SCHEMAS.diplomes}
+          mode = "edit"
+          passingId = {editingId}
+          onCancel={() => { setEditingId(null); setStep('diplomes'); }}
+          onSuccess={() => { setEditingId(null); setStep('diplomes'); }}
+        />
+      )}
+
+      {step === 'certifications:edit' && editingId && (
+        <AdminForm
+          schema={FORM_SCHEMAS.certifications}
+          mode = "edit"
+          passingId = {editingId}
+          onCancel={() => { setEditingId(null); setStep('certifications'); }}
+          onSuccess={() => { setEditingId(null); setStep('certifications'); }}
+        />
+      )}
+
+      {step === 'skills:edit' && editingId && (
+        <AdminForm
+          schema={FORM_SCHEMAS.skills}
+          mode = "edit"
+          passingId = {editingId}
+          onCancel={() => { setEditingId(null); setStep('skills'); }}
+          onSuccess={() => { setEditingId(null); setStep('skills'); }}
         />
       )}
     </Modal>
