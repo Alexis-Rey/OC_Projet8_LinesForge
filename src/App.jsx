@@ -11,7 +11,7 @@ function App() {
     <RouterWrapper>
       <AdminModalProvider>
         <Router />
-        <AdminModal />   {/* rendu global, masquée tant qu’inactive */}
+        <AdminModal />   {/* rendu global de la modal, masquée tant qu’inactive */}
       </AdminModalProvider>
     </RouterWrapper>
   );
