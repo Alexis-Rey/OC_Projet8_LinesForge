@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import data from "../data"; // fichier mock pour le test avant backend
+import mock from "../data"; // V1 : fichier mock pour le test avant backend --- V2: fichier de secours si api absente ou en défault
+import { useGoalApi } from"../hook/useGoalApi";
 import Card from "../components/Card";
 import CarrouselV2 from "../components/CarrouselV2";
 
@@ -25,12 +26,27 @@ import CarrouselV2 from "../components/CarrouselV2";
  * <Card goal="project" title="Portfolio" img="/images/portfolio.png" />
  */
 function Home() {
+
+// 1) on appelle le hook pour chaque liste dont on a besoin
+const { data: servicesData,  loading: loadingS,  error: errS }  = useGoalApi({ goal: "services" });
+const { data: projectsData,  loading: loadingP,  error: errP }  = useGoalApi({ goal: "projects" });
+const { data: skillsData,    loading: loadingSk, error: errSk } = useGoalApi({ goal: "skills" });
+
+// 2) fallback mock si data === false donc pas d'api disponible
+const services = servicesData === false ? mock.services : (servicesData || []);
+const projects = projectsData === false ? mock.projects : (projectsData || []);
+const skills   = skillsData   === false ? mock.skills   : (skillsData   || []);
+
   return (
     <div className="home">
+      {/* états de chargement / erreurs (facultatifs) */}
+      {(loadingS || loadingP || loadingSk) && <p style={{opacity:.6}}>Chargement…</p>}
+      {(errS || errP || errSk) && <p style={{color:"crimson"}}>{errS || errP || errSk}</p>}
+
       <section className="home__services">
         <h2 id="solutions-forgees" className="home__title">Solutions Forgées</h2>
         <div className="cards cards--services">
-          {data.services.map(s => (
+          {services.map(s => (
             <Card key={s.id} goal="solution" title={s.title} desc={s.description} img={s.img} />
           ))}
         </div>
@@ -39,7 +55,7 @@ function Home() {
       <section className="home__skills">
         <h2 id="arsenal" className="home__title">Arsenal</h2>
            <CarrouselV2
-              items={data.skills}
+              items={skills}
               defaultVisible={4}
               computeVisibleFn={(w) => (w >= 1330 ? 4 : w >= 640 ? 3 : 1)}
               intervalMs={2000}   // 0 pour désactiver l’auto-play
@@ -60,7 +76,7 @@ function Home() {
       <section className="home__projects">
         <h2 id="realisations" className="home__title">Réalisations</h2>
         <div className="cards cards--projects">
-          {data.projects.map(p => (
+          {projects.map(p => (
             <Link key={p.id} to={`projects/${p.id}`} className="home__projects-link">
               <Card
                 key={p.id}

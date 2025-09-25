@@ -137,6 +137,9 @@
                 gap: 0.5rem;
                 color: white;
                 text-decoration: none;
+                a{
+                    text-decoration: none;
+                }
             }
             .project__tips, .project__soutenance{
                 display: flex;
