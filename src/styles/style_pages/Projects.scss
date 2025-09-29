@@ -94,6 +94,11 @@
             flex-wrap: wrap;
             gap: 3rem;
             width: 100%;
+            li{
+                li{
+                    margin-left: 2.5rem;
+                }
+            }
             .project__info-list{
                 display: flex;
                 align-items: center;
@@ -116,7 +121,7 @@
                 .tag[data-lang="Vite"] { background:#646cff; color:#fff; border-radius: 15px; }
                 .tag[data-lang="Node.js"] { background:#539e43; color:#fff; border-radius: 15px; }
                 .tag[data-lang="Express"] { background:#000000; color:#fff; border-radius: 15px; }
-                .tag[data-lang="MongoDB"] { background:#47a248; color:#fff; border-radius: 15px; }
+                .tag[data-lang="MongoDB"] { background:#378039; color:#fff; border-radius: 15px; }
                 .tag[data-lang="Git & GitHub"] { background:#181717; color:#fff; border-radius: 15px; }
                 .tag[data-lang="Figma"] { background:#a259ff; color:#fff; border-radius: 15px; }
                 .tag[data-lang="Notion"] { background:#000000; color:#fff; border-radius: 15px; }

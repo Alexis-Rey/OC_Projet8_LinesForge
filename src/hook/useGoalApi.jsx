@@ -39,11 +39,7 @@ const mapOne = {
 
     const sources = Array.isArray(p.sources)
       ? p.sources
-          .map(s =>
-            typeof s === "string"
-              ? { url: s, label: s }
-              : { url: s.url, label: s.label || s.url }
-          )
+          .map(s =>typeof s === "string" ? { url: s, label: s }: { url: s.url, label: s.label || s.url })
           .filter(x => x && x.url)
       : [];
 

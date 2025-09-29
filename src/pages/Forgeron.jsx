@@ -1,21 +1,33 @@
 import React from "react";
-import data from "../data";
+import mock from "../data";
+import { useGoalApi } from "../hook/useGoalApi"; 
 import Collapse from "../components/Collapse";
 import Me from "/utils/me.webp";
 import OC from "/utils/Oc.webp";
 
 function Forgeron() {
-  const diplomes = data.diplomes || [];           // tableau
-  const hasDiplomes = diplomes.length > 0;
-  const validDiplomes = diplomes.filter(d => d?.img && d?.title && d?.description);
-  const incompleteDiplomes = diplomes.filter(d => !d?.img || !d?.title || !d?.description);
 
-  const certifs= data.certificats || [];           // tableau
-  const hasCertifs = certifs.length > 0;
-  const validCertifs = certifs.filter(c => c?.img && c?.title && c?.description);
-  const incompleteCertifs = certifs.filter(c => !c?.img || !c?.title || !c?.description);
+// 1) on appelle le hook pour chaque liste dont on a besoin
+const { data: diplomesData,  loading: loadingD,  error: errD }  = useGoalApi({ goal: "diplomes" });
+const { data: certificationsData,  loading: loadingc,  error: errC }  = useGoalApi({ goal: "certifications" });
+  
+// 2) fallback mock si data === false donc pas d'api disponible
+const dip = diplomesData === false ? mock.diplomes : (diplomesData || []);
+const certifications = certificationsData === false ? mock.certificats : (certificationsData|| []);
 
-  const role = sessionStorage.getItem("role");
+
+const diplomes = dip|| [];           // tableau
+const hasDiplomes = diplomes.length > 0;
+const validDiplomes = diplomes.filter(d => d?.img && d?.title && d?.description);
+const incompleteDiplomes = diplomes.filter(d => !d?.img || !d?.title || !d?.description);
+
+const certifs= certifications || [];           // tableau
+const hasCertifs = certifs.length > 0;
+const validCertifs = certifs.filter(c => c?.img && c?.title && c?.description);
+const incompleteCertifs = certifs.filter(c => !c?.img || !c?.title || !c?.description);
+
+const role = sessionStorage.getItem("role");
+
   return (
     <>
     <section className="aboutMe">

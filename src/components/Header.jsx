@@ -21,6 +21,7 @@ function Header() {
                   alt="Logo LinesForge"
                   width={213}
                   height={87}
+                  fetchPriority="high"
                 />
             </h1>
           </NavLink>
