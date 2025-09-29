@@ -44,7 +44,7 @@ export default function CarrouselV2({ items, render,defaultVisible,computeVisibl
   // clones dynamiques selon visible
   const CLONES = Math.max(0, visible);
 
-  // autoplay (inchangé)
+  // autoplay 
   useEffect(() => {
     if (total <= 1 || paused || intervalMs <= 0) return;
     const itv = setInterval(() => nextIndex(), intervalMs);
