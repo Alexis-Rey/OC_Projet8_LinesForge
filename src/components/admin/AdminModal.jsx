@@ -58,7 +58,6 @@ export default function AdminModal() {
 
   // Tentative de connexion via l'api et gestion des erreurs
   try {
-    // URL sûre (évite double base)
     const url = new URL('/api/auth/login', API_BASE).toString();
 
     const res = await fetch(url, {
